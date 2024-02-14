@@ -1,3 +1,7 @@
 $primary: darken(#428bca, 20%);
 
 @import "~bootstrap/scss/bootstrap";
+
+table, th, td {
+border: 1px solid;
+}

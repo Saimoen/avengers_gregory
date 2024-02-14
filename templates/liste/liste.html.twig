@@ -1,3 +1,9 @@
+    <style>
+    table, th, td {
+  border: 1px solid;
+}
+    </style>
+
 <h1>Liste complète des marque-pages</h1>
 
 <table class="table">
@@ -10,7 +16,7 @@
   <tbody>
     {% for marquePage in marquePage %}
       <tr>
-        <td>{{ marquePage.getUrl() }}</td>
+        <td><a href="/marquepage/consulter/{{ marquePage.getId() }}"> {{ marquePage.getUrl() }}</a></td>
         <td>{{ marquePage.getCommentaire() }}</td>
       </tr>
     {% endfor %}

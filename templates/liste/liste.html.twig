@@ -1,0 +1,18 @@
+<h1>Liste complète des marque-pages</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">URL</th>
+      <th scope="col">Commentaire</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for marquePage in marquePage %}
+      <tr>
+        <td>{{ marquePage.getUrl() }}</td>
+        <td>{{ marquePage.getCommentaire() }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

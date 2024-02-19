@@ -9,20 +9,41 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">ID</th>
-      <th scope="col">URL</th>
-      <th scope="col">Date Création</th>
-      <th scope="col">Commentaire</th>
-
+      <th scope="col">Libellé</th>
+      <th scope="col">Valeur</th>
     </tr>
   </thead>
   <tbody>
-      <tr>
-        <td> {{ details.id }}</td>
-        <td>{{ details.url }}</td>
-       <td>{{ details.getDateCreation()|date('Y-m-d H:i:s') }}</td>
-        <td>{{ details.commentaire }}</td>
+        <tr>
+      <td> ID </td>
+      <td> {{ details.id }} </td>
       </tr>
+        <tr>
+      <td> URL </td>
+      <td> {{ details.url }} </td>
+      </tr>
+        <tr>
+      <td> Date de création </td>
+      <td> {{ details.getDateCreation()|date('Y-m-d H:i:s') }} </td>
+      </tr>
+
+      <tr>
+      <td> Commentaire </td>
+      <td> {{ details.commentaire }}</td>
+      </tr>
+
+          <tr>
+          <td>Mots clés</td>
+            <td>
+                {% for motCle in motCles %}
+                    {{ motCle.getContenu() }}
+                    {% if not loop.last %}<br>{% endif %}
+                {% endfor %}
+            </td>
+    </tr>
+
+
+
   </tbody>
 </table>
 

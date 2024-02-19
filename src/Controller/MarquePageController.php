@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\MarquePage;
+use App\Entity\MotCles;
 use DateTime;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -37,15 +38,19 @@ class MarquePageController extends AbstractController
             // Cherche les marques pages en bdd selon l'ID de l'article
             $details = $entityManager->getRepository(MarquePage::class)->find($id);
 
-            if(!$details) {
+            $motsCles = $details->getMotCles();
+        
+            if (!$details) {
                 throw $this->createNotFoundException(
-                    "Aucun marque page avec l'id ". $id
+                    "Aucun marque page avec l'id " . $id
                 );
             }
-
+        
+        
             // Ajoute les valeurs dans la Vue
             return $this->render('details/details.html.twig', [
                 'details' => $details,
+                'motCles' => $motsCles,
             ]);
         }
 }

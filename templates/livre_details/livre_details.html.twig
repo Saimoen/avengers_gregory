@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block livre_details %}
+    <h1>{{ livres.titre }}</h1>
+    <h2>{{ livres.annee }}</h2>
+{% for auteur in auteur %}
+    <p>Ecrit par : {{ auteur.getNom() }} {{ auteur.getPrenom() }}</p>
+{% endfor %}
+
+<a href="/livre">Retourner à la liste des livres</a>
+{% endblock %}

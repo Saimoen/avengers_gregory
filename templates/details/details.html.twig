@@ -1,8 +1,6 @@
-    <style>
-    table, th, td {
-  border: 1px solid;
-}
-    </style>
+{% extends "base.html.twig" %}
+
+{% block details %}
 
 <h1>Les détails du marque-page : {{ details.id }}</h1>
 
@@ -47,4 +45,6 @@
   </tbody>
 </table>
 
-<a href="/">Retourner !</a>
+<a href="/marquepage">Retourner à la liste des marques pages</a>
+
+{% endblock %}

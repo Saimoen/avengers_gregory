@@ -1,8 +1,6 @@
-    <style>
-    table, th, td {
-  border: 1px solid;
-}
-    </style>
+{% extends "base.html.twig" %}
+
+{% block test %}
 
 <h1>Liste complète des marque-pages</h1>
 
@@ -24,3 +22,5 @@
 </table>
 
 <a href="/marquepage/ajouter">Ajouter marque page !</a>
+
+{% endblock %}

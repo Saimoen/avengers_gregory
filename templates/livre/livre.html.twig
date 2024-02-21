@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block livre %}
+
+{% for livre in livres %}
+    <a href="/livre/consulter/{{ livre.getId() }}"> {{ livre.titre }}</a>
+    <p>{{ livre.annee }}</p>
+{% endfor %}
+{% endblock %}

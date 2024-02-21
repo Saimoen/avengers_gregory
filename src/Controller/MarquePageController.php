@@ -14,6 +14,25 @@ use Doctrine\ORM\EntityManagerInterface;
 class MarquePageController extends AbstractController
 {
         // Définition de la route 
+        #[Route('/')]
+        public function getAll(EntityManagerInterface $entityManager): Response
+        {
+            // Récupère les livres dans la BDD
+            $marquePage = $entityManager->getRepository(MarquePage::class)->findAll();
+            
+            // Gestion d'erreur
+            if(!$marquePage) {
+                throw $this->createNotFoundException("Aucun livre n'est enregistré !");
+            }
+    
+            // Transfère les données à la Vue
+            return $this->render('liste/liste.html.twig', [
+                'marquePage' => $marquePage,
+            ]);
+        }
+
+
+        // Définition de la route 
         #[Route('/ajouter')]
         public function addMarquePage(EntityManagerInterface $entityManager): Response
         {

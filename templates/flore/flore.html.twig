@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block flore %}
+<h1>Flore</h1>
+
+<div class="d-flex">
+
+ {% for images in images %}
+ <div class="card" style="width: 18rem;">
+        <img src="{{ asset(images.image) }}" class="card-img-top" alt="Symfony!" />
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p>{{ images.description }}</p>
+  </div>
+</div>
+{% endfor %}
+</div
+
+    
+{% endblock %}

@@ -21,6 +21,18 @@ class AuteurRepository extends ServiceEntityRepository
         parent::__construct($registry, Auteur::class);
     }
 
+    public function findAuthorsWithMoreThanXBooks($numberOfBooks)
+    {
+        $entityManager = $this->getEntityManager();
+        
+        $dql = "SELECT a FROM App\Entity\Auteur a WHERE SIZE(a.livres) > :numberOfBooks";
+
+        $query = $entityManager->createQuery($dql)
+            ->setParameter('numberOfBooks', $numberOfBooks);
+
+        return $query->getResult();
+    }
+
 //    /**
 //     * @return Auteur[] Returns an array of Auteur objects
 //     */

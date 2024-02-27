@@ -16,31 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `mot_cles_marque_page`
+-- Table structure for table `auteur`
 --
 
-DROP TABLE IF EXISTS `mot_cles_marque_page`;
+DROP TABLE IF EXISTS `auteur`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `mot_cles_marque_page` (
-  `mot_cles_id` int NOT NULL,
-  `marque_page_id` int NOT NULL,
-  PRIMARY KEY (`mot_cles_id`,`marque_page_id`),
-  KEY `IDX_D48592B3855234A9` (`mot_cles_id`),
-  KEY `IDX_D48592B3D59CC0F1` (`marque_page_id`),
-  CONSTRAINT `FK_D48592B3855234A9` FOREIGN KEY (`mot_cles_id`) REFERENCES `mot_cles` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `FK_D48592B3D59CC0F1` FOREIGN KEY (`marque_page_id`) REFERENCES `marque_page` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE `auteur` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `livre_id` int DEFAULT NULL,
+  `nom` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `prenom` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_55AB14037D925CB` (`livre_id`),
+  CONSTRAINT `FK_55AB14037D925CB` FOREIGN KEY (`livre_id`) REFERENCES `livre` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `mot_cles_marque_page`
+-- Dumping data for table `auteur`
 --
 
-LOCK TABLES `mot_cles_marque_page` WRITE;
-/*!40000 ALTER TABLE `mot_cles_marque_page` DISABLE KEYS */;
-INSERT INTO `mot_cles_marque_page` VALUES (1,2),(2,2),(3,2),(4,2);
-/*!40000 ALTER TABLE `mot_cles_marque_page` ENABLE KEYS */;
+LOCK TABLES `auteur` WRITE;
+/*!40000 ALTER TABLE `auteur` DISABLE KEYS */;
+INSERT INTO `auteur` VALUES (1,1,'Dupont','Jean'),(2,2,'Martin','Sophie'),(3,3,'Dubois','Claire'),(4,4,'Lefevre','Paul'),(5,5,'Girard','Isabelle'),(6,6,'Moreau','Pierre'),(7,7,'Roux','Marie'),(8,8,'Leroy','Antoine'),(9,9,'Fournier','Charlotte'),(10,10,'Gagnon','Luc'),(56,NULL,'NomAuteur1','PrenomAuteur1'),(57,NULL,'NomAuteur2','PrenomAuteur2'),(58,NULL,'NomAuteur3','PrenomAuteur3'),(59,NULL,'NomAuteur4','PrenomAuteur4'),(60,NULL,'NomAuteur5','PrenomAuteur5'),(61,181,'Verne','Jules'),(62,182,'Hugo','Léon'),(63,183,'Verne','Emile'),(64,184,'Zola','Emile'),(65,185,'Hugo','Victor');
+/*!40000 ALTER TABLE `auteur` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

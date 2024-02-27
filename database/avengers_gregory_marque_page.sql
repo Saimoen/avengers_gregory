@@ -24,11 +24,11 @@ DROP TABLE IF EXISTS `marque_page`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `marque_page` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `url` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `url` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `date_creation` datetime NOT NULL,
-  `commentaire` longtext COLLATE utf8mb4_unicode_ci,
+  `commentaire` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `marque_page` (
 
 LOCK TABLES `marque_page` WRITE;
 /*!40000 ALTER TABLE `marque_page` DISABLE KEYS */;
-INSERT INTO `marque_page` VALUES (1,'https://www.google.com/','2024-02-18 00:00:00','web,recherche'),(2,'https://www.youtube.com/','2024-02-18 00:00:00','video,divertissement'),(3,'https://www.facebook.com/','2024-02-18 00:00:00','reseau_social,communication'),(4,'Test d\'ajouter !','2024-02-18 21:06:35','Test d\'ajouter !'),(5,'Test d\'ajouter !','2024-02-18 22:20:08','Test d\'ajouter !');
+INSERT INTO `marque_page` VALUES (1,'https://www.google.com/','2024-02-18 00:00:00','web,recherche'),(2,'https://www.youtube.com/','2024-02-18 00:00:00','video,divertissement'),(3,'https://www.facebook.com/','2024-02-18 00:00:00','reseau_social,communication'),(4,'Test d\'ajouter !','2024-02-18 21:06:35','Test d\'ajouter !'),(5,'Test d\'ajouter !','2024-02-18 22:20:08','Test d\'ajouter !'),(6,'Test d\'ajouter !','2024-02-20 22:31:10','Test d\'ajouter !'),(7,'Test d\'ajouter !','2024-02-20 22:35:54','Test d\'ajouter !');
 /*!40000 ALTER TABLE `marque_page` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-19 11:14:08
+-- Dump completed on 2024-02-27 18:48:10

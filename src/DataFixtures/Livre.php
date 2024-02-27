@@ -4,23 +4,22 @@ namespace App\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use App\Entity\Livre;
+use App\Entity\Auteur;
 
-class Livre extends Fixture
+class LivreFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        // $product = new Product();
-        // $manager->persist($product);
-
         // Création de 15 livres
         for ($i = 0; $i < 15; $i++) {
             $livre = new Livre();
-            $livre->setTitre('Livre ' . $i);
-            $livre->setAnneeParution(mt_rand(1975, 2020));
-            $livre->setNbPages(mt_rand(45, 1500));
+            $livre->setTitre('Livre n°' . $i);
+            $livre->setAnnee(mt_rand(1975, 2020));
+            $auteur = $manager->getRepository(Auteur::class)->find(mt_rand(1, 15));
+            $livre->setAuteurId($auteur);
             $manager->persist($livre);
         }
-        $manager->flush();
         $manager->flush();
     }
 }

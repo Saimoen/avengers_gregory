@@ -16,31 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `mot_cles_marque_page`
+-- Table structure for table `flore`
 --
 
-DROP TABLE IF EXISTS `mot_cles_marque_page`;
+DROP TABLE IF EXISTS `flore`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `mot_cles_marque_page` (
-  `mot_cles_id` int NOT NULL,
-  `marque_page_id` int NOT NULL,
-  PRIMARY KEY (`mot_cles_id`,`marque_page_id`),
-  KEY `IDX_D48592B3855234A9` (`mot_cles_id`),
-  KEY `IDX_D48592B3D59CC0F1` (`marque_page_id`),
-  CONSTRAINT `FK_D48592B3855234A9` FOREIGN KEY (`mot_cles_id`) REFERENCES `mot_cles` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `FK_D48592B3D59CC0F1` FOREIGN KEY (`marque_page_id`) REFERENCES `marque_page` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE `flore` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `mot_cles_marque_page`
+-- Dumping data for table `flore`
 --
 
-LOCK TABLES `mot_cles_marque_page` WRITE;
-/*!40000 ALTER TABLE `mot_cles_marque_page` DISABLE KEYS */;
-INSERT INTO `mot_cles_marque_page` VALUES (1,2),(2,2),(3,2),(4,2);
-/*!40000 ALTER TABLE `mot_cles_marque_page` ENABLE KEYS */;
+LOCK TABLES `flore` WRITE;
+/*!40000 ALTER TABLE `flore` DISABLE KEYS */;
+INSERT INTO `flore` VALUES (1,'images/image1.jpg','test'),(2,'images/image2.jpg','test'),(3,'images/image3.jpg','test'),(4,'images/image4.jpg','test'),(5,'images/image5.jpg','test'),(10,'images/image1.jpg','Fleur rose dans un jardin en été.'),(11,'images/image2.jpg','Feuilles vertes brillantes sous le soleil.'),(12,'images/image3.jpg','Petites fleurs blanches sur une plante grimpante.'),(13,'images/image4.jpg','Bouton de rose qui s\'épanouit lentement.'),(14,'images/image5.jpg','Feuillage automnal aux couleurs vives.');
+/*!40000 ALTER TABLE `flore` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-27 18:48:09
+-- Dump completed on 2024-02-27 18:48:10

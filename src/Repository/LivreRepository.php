@@ -36,6 +36,35 @@ class LivreRepository extends ServiceEntityRepository
 //        ;
 //    }
 
+// La liste des livres dont la première lettre commence par …
+
+public function findLivresByFirstLetter(string $letter)
+{
+    $entityManager = $this->getEntityManager();
+
+    $query = $entityManager->createQuery(
+        'SELECT livre
+        FROM App\Entity\Livre livre
+        WHERE SUBSTRING(livre.titre, 1, 1) = :letter'
+    );
+
+    $query->setParameter('letter', $letter);
+
+    return $query->getResult();
+}
+
+public function countTotalBooks()
+{
+    $queryBuilder = $this->createQueryBuilder('l');
+
+    return $queryBuilder
+        ->select('COUNT(l.id) as totalBooks')
+        ->getQuery()
+        ->getSingleScalarResult();
+}
+
+
+
 //    public function findOneBySomeField($value): ?Livre
 //    {
 //        return $this->createQueryBuilder('l')

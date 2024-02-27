@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `doctrine_migration_versions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `doctrine_migration_versions` (
-  `version` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `version` varchar(191) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `executed_at` datetime DEFAULT NULL,
   `execution_time` int DEFAULT NULL,
   PRIMARY KEY (`version`)
@@ -36,7 +36,7 @@ CREATE TABLE `doctrine_migration_versions` (
 
 LOCK TABLES `doctrine_migration_versions` WRITE;
 /*!40000 ALTER TABLE `doctrine_migration_versions` DISABLE KEYS */;
-INSERT INTO `doctrine_migration_versions` VALUES ('DoctrineMigrations\\Version20240214060038','2024-02-18 08:23:54',16),('DoctrineMigrations\\Version20240218214543','2024-02-18 21:45:58',177),('DoctrineMigrations\\Version20240218222356','2024-02-18 22:24:37',155),('DoctrineMigrations\\Version20240218223401','2024-02-18 22:34:27',244),('DoctrineMigrations\\Version20240218232747','2024-02-18 23:28:08',55),('DoctrineMigrations\\Version20240218233034','2024-02-18 23:30:43',90);
+INSERT INTO `doctrine_migration_versions` VALUES ('DoctrineMigrations\\Version20240214060038','2024-02-18 08:23:54',16),('DoctrineMigrations\\Version20240218214543','2024-02-18 21:45:58',177),('DoctrineMigrations\\Version20240218222356','2024-02-18 22:24:37',155),('DoctrineMigrations\\Version20240218223401','2024-02-18 22:34:27',244),('DoctrineMigrations\\Version20240218232747','2024-02-18 23:28:08',55),('DoctrineMigrations\\Version20240218233034','2024-02-18 23:30:43',90),('DoctrineMigrations\\Version20240220231449','2024-02-20 23:15:15',195),('DoctrineMigrations\\Version20240222111954','2024-02-22 11:20:07',116),('DoctrineMigrations\\Version20240222112939','2024-02-22 11:29:51',641),('DoctrineMigrations\\Version20240222120310','2024-02-22 12:03:23',117),('DoctrineMigrations\\Version20240223084728','2024-02-23 08:47:44',179);
 /*!40000 ALTER TABLE `doctrine_migration_versions` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-19 11:14:08
+-- Dump completed on 2024-02-27 18:48:10

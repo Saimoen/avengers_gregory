@@ -24,6 +24,9 @@ class Livre
     #[ORM\OneToMany(targetEntity: Auteur::class, mappedBy: 'livre')]
     private Collection $auteur;
 
+    #[ORM\ManyToOne(inversedBy: 'livres', cascade: ["persist"])]
+    private ?auteur $auteur_id = null;
+
     public function __construct()
     {
         $this->auteur = new ArrayCollection();
@@ -84,6 +87,18 @@ class Livre
                 $auteur->setLivre(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAuteurId(): ?auteur
+    {
+        return $this->auteur_id;
+    }
+
+    public function setAuteurId(?auteur $auteur_id): static
+    {
+        $this->auteur_id = $auteur_id;
 
         return $this;
     }

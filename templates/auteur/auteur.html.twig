@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block auteur %}
+
+{% for auteur in auteurs %}
+<ul>
+    <li><a href="/auteur/modifier/{{ auteur.getId() }}"> {{ auteur.prenom }} {{ auteur.nom }}</a></li>
+</ul>
+{% endfor %}
+
+
+
+
+{% endblock %}

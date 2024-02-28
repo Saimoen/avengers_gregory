@@ -7,5 +7,6 @@
     <p>Ecrit par : {{ auteur.getNom() }} {{ auteur.getPrenom() }}</p>
 {% endfor %}
 
-<a href="/livre">Retourner à la liste des livres</a>
+<a class="mx-5 btn btn-secondary"  href="/livre">Retourner à la liste des livres</a>
+<a class="mx-5 btn btn-primary" href="/livre/modifier/{{ livres.id }}">Modifier le livre</a>
 {% endblock %}

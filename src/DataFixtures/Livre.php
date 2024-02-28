@@ -11,12 +11,20 @@ class LivreFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
+        $listeAuteurs = array();
+
+        for ($i=0; $i<25; $i++) {
+            $auteur = new Auteur();
+            $auteur->setNom('Nom de l\'auteur ' . $i);
+            $auteur->setPrenom('Prénom de l\'auteur ' . $i);
+            $manager->persist($auteur);
+            $listeAuteurs[] = $auteur;
+        }
         // Création de 15 livres
-        for ($i = 0; $i < 15; $i++) {
+        for ($i = 0; $i < 250; $i++) {
             $livre = new Livre();
             $livre->setTitre('Livre n°' . $i);
             $livre->setAnnee(mt_rand(1975, 2020));
-            $auteur = $manager->getRepository(Auteur::class)->find(mt_rand(1, 15));
             $livre->setAuteurId($auteur);
             $manager->persist($livre);
         }

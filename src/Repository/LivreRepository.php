@@ -45,10 +45,12 @@ public function findLivresByFirstLetter(string $letter)
     $query = $entityManager->createQuery(
         'SELECT livre
         FROM App\Entity\Livre livre
-        WHERE SUBSTRING(livre.titre, 1, 1) = :letter'
+        WHERE livre.titre LIKE :letter
+        ORDER BY livre.titre ASC
+        '
     );
 
-    $query->setParameter('letter', $letter);
+    $query->setParameter('letter', $letter.'%');
 
     return $query->getResult();
 }
@@ -61,6 +63,30 @@ public function countTotalBooks()
         ->select('COUNT(l.id) as totalBooks')
         ->getQuery()
         ->getSingleScalarResult();
+}
+
+public function getNbLivres()
+{
+    $entityManager = $this->getEntityManager();
+
+    $query = $entityManager->createQuery(
+        'SELECT COUNT(livre.id)
+        FROM App\Entity\Livre livre'
+    );
+
+    return $query->getSingleScalarResult();
+}
+
+public function findAuthorsWithMoreThanXBooks($numberOfBooks)
+{
+    $entityManager = $this->getEntityManager();
+    
+    $dql = "SELECT a, count(l) AS NBLivres FROM App\Entity\Auteur a JOIN a.livres l GROUP BY a.id HAVING NBLivres > :numberOfBooks ORDER BY NBLivres DESC";
+
+    $query = $entityManager->createQuery($dql)
+        ->setParameter('numberOfBooks', $numberOfBooks);
+
+    return $query->getResult();
 }
 
 

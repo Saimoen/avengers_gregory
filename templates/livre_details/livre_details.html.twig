@@ -3,7 +3,11 @@
 {% block livre_details %}
     <h1>{{ livres.titre }}</h1>
     <h2>{{ livres.annee }}</h2>
+
 {% for auteur in auteur %}
+    <pre>
+        {{ auteur.__toString() }}
+    </pre>
     <p>Ecrit par : {{ auteur.getNom() }} {{ auteur.getPrenom() }}</p>
 {% endfor %}
 

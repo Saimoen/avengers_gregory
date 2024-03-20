@@ -2,7 +2,20 @@
 
 {% block modifier_livre %}
 
-{{ form(form) }}
+{{ form_start(form) }}
+    <div class="my-custom-class-for-errors">
+        {{ form_errors(form) }}
+    </div>
+
+    <div class="row">
+        <div class="form-control">
+            {{ form_row(form.titre) }}
+        </div>
+        <div class="form-control" id="some-custom-id">
+            {{ form_row(form.annee) }}
+        </div>
+    </div>
+{{ form_end(form) }}
 
 
 {% endblock %}

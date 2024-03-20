@@ -2,16 +2,22 @@
 
 {% block livre %}
 
+<div class="d-flex justify-content-center">
+<a class="btn btn-primary" href="/livre/ajout">Ajouter un livre</a>
+<br />
+<a class="btn btn-primary" href="/auteur/ajout">Ajouter un auteur</a>
+<br />
+<a class="btn btn-primary" href="/auteur/">Liste des auteurs</a>
+<br />
+<a class="btn btn-primary" href="/livre/ajoutEmploye">Ajouter un employé</a>
+</div>
+
 {% for livre in livres %}
     <a href="/livre/consulter/{{ livre.getId() }}"> {{ livre.titre }}</a>
     <p>{{ livre.annee }}</p>
 {% endfor %}
 
-<a href="/livre/ajout">Ajouter un livre</a>
-<br />
-<a href="/auteur/ajout">Ajouter un auteur</a>
-<br />
-<a href="/auteur/">Liste des auteurs</a>
+
 
 
 

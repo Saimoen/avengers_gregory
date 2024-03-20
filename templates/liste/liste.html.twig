@@ -2,24 +2,29 @@
 
 {% block test %}
 
-<h1>Liste complète des marque-pages</h1>
+	<h1>Liste complète des marque-pages</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">URL</th>
-      <th scope="col">Commentaire</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for marquePage in marquePage %}
-      <tr>
-        <td><a href="/marquepage/consulter/{{ marquePage.getId() }}"> {{ marquePage.getUrl() }}</a></td>
-        <td>{{ marquePage.getCommentaire() }}</td>
-      </tr>
-    {% endfor %}
-  </tbody>
-</table>
+	<a class="btn btn-primary" href="/marquepage/ajouter">Ajouter un marque-page</a>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">URL</th>
+				<th scope="col">Commentaire</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for marquePage in marquePage %}
+				<tr>
+					<td>
+						<a href="/marquepage/consulter/{{ marquePage.getId() }}">
+							{{ marquePage.getUrl() }}</a>
+					</td>
+					<td>{{ marquePage.getCommentaire() }}</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
 
 
 {% endblock %}

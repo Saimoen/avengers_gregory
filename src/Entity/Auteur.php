@@ -21,7 +21,7 @@ class Auteur
     #[ORM\Column(length: 255)]
     private ?string $prenom = null;
 
-    #[ORM\ManyToOne(inversedBy: 'livre', cascade: ["persist"])]
+    #[ORM\ManyToOne(inversedBy: 'livres', cascade: ["persist"])]
     private ?Livre $livre = null;
 
     #[ORM\OneToMany(targetEntity: Livre::class, mappedBy: 'auteur_id')]
@@ -84,14 +84,14 @@ class Auteur
     public function addLivre(Livre $livre): static
     {
         if (!$this->livres->contains($livre)) {
-            $this->livres->add($livre);
+            $this->livres[] = $livre;
             $livre->setAuteurId($this);
         }
 
         return $this;
     }
 
-    public function removeLivre(Livre $livre): static
+    public function removeLivre(Livre $livre): self
     {
         if ($this->livres->removeElement($livre)) {
             // set the owning side to null (unless already changed)
@@ -101,5 +101,10 @@ class Auteur
         }
 
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->nom . ' ' . $this->prenom;
     }
 }

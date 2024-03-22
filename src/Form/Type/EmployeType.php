@@ -8,7 +8,6 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use App\Entity\Employe;
-use App\Entity\Adresse;
 
 class EmployeType extends AbstractType
 {
@@ -26,7 +25,6 @@ class EmployeType extends AbstractType
             ])
             ->add('adresse', AdresseType::class, [
                 'required' => false,
-                'class' => Adresse::class,
                 'label' => 'Adresse de l\'employé'
             ])
             ->add('save', SubmitType::class, [
